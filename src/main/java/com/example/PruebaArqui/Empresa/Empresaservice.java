@@ -20,11 +20,11 @@ public class Empresaservice {
         this.empresarepository = enterpriseRepository;
     }
 
-    public List<Empresaentity>getEnterprises(){
+    public List<Empresaentity>getEmpresas(){
         return this.empresarepository.findAll();
     }
-    public ResponseEntity<Object> addNewEnterprise(Empresaentity enterprise){
-        Optional<Empresaentity> res = empresarepository.findEnterpriseByName(enterprise.getEnterpriseName());
+    public ResponseEntity<Object> addNewEmpresa(Empresaentity empresa){
+        Optional<Empresaentity> res = empresarepository.findEnterpriseByName(empresa.getEmpresaName());
         HashMap<String, Object> datos = new HashMap<>();
 
         if(res.isPresent()){
@@ -32,8 +32,8 @@ public class Empresaservice {
             datos.put("message", "Ya existe empresa con ese nombre");
             return new ResponseEntity<>(HttpStatus.CONFLICT);
         }
-        empresarepository.save(enterprise);
-        datos.put("datos", enterprise);
+        empresarepository.save(empresa);
+        datos.put("datos", empresa);
         datos.put("message", "Se registró con exito");
         return new ResponseEntity<>(datos, HttpStatus.CREATED);
     }

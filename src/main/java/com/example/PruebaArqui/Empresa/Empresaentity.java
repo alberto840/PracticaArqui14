@@ -13,34 +13,32 @@ public class Empresaentity {
     //Atributos
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer enterpriseId;
+    private Integer empresaId;
     @Column(unique = true)
-    private String enterpriseName;
+    private String empresaName;
 
     //Constructor vacio
     public Empresaentity() {
     }
 
     //Constructor lleno
-    public Empresaentity(Integer enterpriseId,
-        String documentId, String enterpriseName,
-        String enterpriseEmail, String username, String password){
-            this.enterpriseId=enterpriseId;
-            this.enterpriseName=enterpriseName;
+    public Empresaentity(Integer empresaId, String empresaName) {
+        this.empresaId = empresaId;
+        this.empresaName = empresaName;
     }
 
     //Setters y getters
-    public Integer getEnterpriseId() {
-        return enterpriseId;
+    public Integer getEmpresaId() {
+        return empresaId;
     }
-    public void setEnterpriseId(Integer enterpriseId) {
-        this.enterpriseId = enterpriseId;
+    public void setEmpresaId(Integer enterpriseId) {
+        this.empresaId = enterpriseId;
     }
-    public String getEnterpriseName() {
-        return enterpriseName;
+    public String getEmpresaName() {
+        return empresaName;
     }
-    public void setEnterpriseName(String enterpriseName) {
-        this.enterpriseName = enterpriseName;
+    public void setEmpresaName(String enterpriseName) {
+        this.empresaName = enterpriseName;
     }
 
     
