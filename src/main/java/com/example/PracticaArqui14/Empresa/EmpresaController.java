@@ -1,5 +1,6 @@
 package com.example.PracticaArqui14.Empresa;
 
+import java.io.IOException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,9 +24,16 @@ public class EmpresaController {
         this.empresaService = empresaService;
     }
 
+    /* 
     @GetMapping
     public List<EmpresaEntity>getInternships(){
         return empresaService.getInternships();
+    }
+    */
+
+    @GetMapping
+    public String getInternshipss() throws IOException{
+        return empresaService.consumeApi("https://api.thecompaniesapi.com/v1/companies");
     }
 
     @PostMapping
